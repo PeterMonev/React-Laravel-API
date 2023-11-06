@@ -1,0 +1,128 @@
+.container__register {
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: #e7e8e9;
+  border-radius: 5px;
+  box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
+  animation: scaleUp 1.5s ease-in-out forwards;
+}
+
+.container__register h2 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 800;
+  text-decoration: underline;
+  color: #ff3c20;
+  font-style: italic;
+}
+
+.container__register form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  text-align: center;
+  font-size: 18px;
+  color: gray;
+
+}
+
+.div__register__input {
+   position: relative;
+}
+
+.div__register__input label {
+   position: absolute;
+   left: 0;
+   padding: 3% 0 0 4%;
+   transition: 0.5s;
+   font-weight: bold;
+}
+
+.div__register__input label i {
+  margin-right: 5px;
+}
+
+.div__register__input input:focus + label,
+.div__register__input input:not(:placeholder-shown) + label {
+  font-size: 16px;
+  color: #ff3c20;
+  transform: translateX(10px) translateY(-110%);
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+.div__register__input input:focus {
+  border: 3px solid lightgreen ;
+}
+
+.container__register input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border: 3px solid bisque;
+  border-radius: 20px;
+  width: 100%;
+  outline: none;
+}
+
+.container__register button {
+  background-color: #ff3c20;
+  font-size: 18px;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.container__register button:hover {
+  background-color: lightgreen;
+  transition: 0.3s;
+  font-size: 20px;
+  border: 3px solid bisque;
+}
+
+.container__register .contactForm_p {
+  color: red;
+  font-size: 16px;
+  animation: shake 1s  both;
+ 
+}
+
+
+@keyframes scaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
