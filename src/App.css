@@ -28,7 +28,11 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+	line-height: 1;	
+	background-image: url('../public/koons-automotive-mNNEGPGfJyE-unsplash.jpg');
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 ol, ul {
 	list-style: none;

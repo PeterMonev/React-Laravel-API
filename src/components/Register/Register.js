@@ -96,6 +96,7 @@ export const Register = () => {
   };
 
   return (
+
     <section className="container__register">
       <h2>Register</h2>
       <form onSubmit={onSubmit}>
@@ -167,5 +168,6 @@ export const Register = () => {
         </p>
       </form>
     </section>
+  
   );
 };

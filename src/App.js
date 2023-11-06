@@ -5,6 +5,8 @@ import { Register } from './components/Register/Register';
 import { Login } from './components/Login/Login';
 import { AuthProvider } from './hooks/authContext';
 import { Header } from './components/Header/Header';
+import { Dashboard } from './components/Dashboard/Dashboard';
+import { Footer } from './components/Footer/Footer';
 
 function App() {
   return (
@@ -16,14 +18,14 @@ function App() {
 
     <Routes>
       
-      <Route path='/' element={<Login/>}/>
+      <Route path='/' element={<Dashboard/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/login' element={<Login/>}/>
 
 
     </Routes>  
 
-    <Register />
+    <Footer/>
       
     </AuthProvider>
 
