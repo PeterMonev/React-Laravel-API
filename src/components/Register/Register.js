@@ -1,5 +1,5 @@
 import {  useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "../Register/Register.css";
 import { useAuth } from "../../hooks/authContext";
@@ -162,6 +162,9 @@ export const Register = () => {
         </div>
 
         <button type="submit">Register</button>
+        <p className="p__dontNot">    
+            If you already have account? Click <Link to="/login">here!</Link>
+        </p>
       </form>
     </section>
   );

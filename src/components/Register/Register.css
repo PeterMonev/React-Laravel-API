@@ -1,6 +1,6 @@
 .container__register {
-  width: 400px;
-  margin: auto;
+  width: 390px;
+  margin: 5% auto;
   padding: 20px;
   background-color: #e7e8e9;
   border-radius: 5px;
@@ -95,6 +95,9 @@ input:-webkit-autofill {
  
 }
 
+.p__dontNot a {
+  color: #ff3c20;
+}
 
 @keyframes scaleUp {
   0% {

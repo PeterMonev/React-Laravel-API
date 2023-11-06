@@ -1,0 +1,31 @@
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px ;
+    display: flex;
+    width: 100%;
+  }
+  
+  .nav {
+    margin: auto;
+  }
+
+  .nav__ul {
+    margin-right: 15px;
+  }
+  
+  .nav__ul a {
+    font-size: 26px;
+    text-decoration: none;
+    color: #ff3c20;
+    font-weight: bold;
+    transition: color 0.5s;
+    padding: 10px 20px;
+
+  }
+  
+  .nav__ul a:hover {
+    color: lightgreen; 
+    border: 2px solid bisque;
+    border-radius: 20px;
+  }

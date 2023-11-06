@@ -4,12 +4,15 @@ import './App.css';
 import { Register } from './components/Register/Register';
 import { Login } from './components/Login/Login';
 import { AuthProvider } from './hooks/authContext';
+import { Header } from './components/Header/Header';
 
 function App() {
   return (
     <div className="App">
    
     <AuthProvider >
+
+    <Header/>
 
     <Routes>
       
