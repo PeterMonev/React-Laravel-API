@@ -2,11 +2,12 @@ import {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "../Register/Register.css";
+import { useAuth } from "../../hooks/authContext";
 
 
 export const Register = () => {
   const navigate = useNavigate();
-
+  const { login } = useAuth();
 
   const [formData, setFormData] = useState({
     username: "",
@@ -77,12 +78,14 @@ export const Register = () => {
        })   
    
        if(response.ok){
-        const data = await response.json();
-        // setAuth(data);
-
-        // navigate('/dashboard');
+        const result = await response.json();
+        login(result.data.token);
+        
+        navigate('/dashboard');
        } else {
-        console.error('Error:' );
+        currentError.email = 'This Email already exist.'
+        setError(currentError)
+        console.error(`Error: ${response.statusText}` );
     
        }
       

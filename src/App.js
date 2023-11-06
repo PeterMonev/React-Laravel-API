@@ -3,13 +3,13 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { Register } from './components/Register/Register';
 import { Login } from './components/Login/Login';
-
-
+import { AuthProvider } from './hooks/authContext';
 
 function App() {
   return (
     <div className="App">
    
+    <AuthProvider >
 
     <Routes>
       
@@ -22,6 +22,7 @@ function App() {
 
     <Register />
       
+    </AuthProvider>
 
     </div>
   );
