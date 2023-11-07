@@ -1,0 +1,49 @@
+.section__carDetail {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin: 5% auto;
+    width: 90%;
+    max-width: 390px;
+    animation: fadeIn 3s both;
+  }
+  
+.section__carDetail h2 {
+    font-size: 36px;
+    color: #ff3c20;
+    text-align: center;
+    font-style: italic;
+    text-decoration: underline;
+    margin-bottom: 20px;
+  }
+
+.div__carDetailInfo {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.section__carDetail p {
+    font-size: 22px;
+    color: #555;
+    font-style: italic;
+}
+
+  .section__carDetail p span {
+    color: #ff3c20;
+    font-weight: 700;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+  

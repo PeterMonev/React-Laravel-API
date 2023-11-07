@@ -1,11 +1,14 @@
 import "../Cars/Cars.css";
 import { useAuth } from "../../hooks/authContext";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Cars = () => {
+  // Get all cars
   const { user } = useAuth();
   const [cars, setCars] = useState([]);
 
+  // Get all cars functionlity
   useEffect(() => {
     getAllCars();
   }, []);
@@ -29,7 +32,7 @@ export const Cars = () => {
       console.error("An error occurred while fetching cars:", error);
     }
   };
-  console.log(cars);
+
   return (
     <>
       <h1 className="carsPage__h1">Cars Page</h1>
@@ -38,7 +41,7 @@ export const Cars = () => {
           <tr>
             <th>Brand</th>
             <th>Model</th>
-            <th>Year</th>
+           
             <th>Action</th>
           </tr>
         </thead>
@@ -47,10 +50,9 @@ export const Cars = () => {
             <tr key={id}>
               <td>{car.brand}</td>
               <td>{car.model}</td>
-              <td>{car.year}</td>
+          
               <td>
-                <i className="fa-solid fa-circle-info"></i>
-                {user && <i className="fa-solid fa-pen-to-square"></i>}
+                <Link to={`/cars/${car.id}`}  className="fa-solid fa-circle-info"></Link>
               </td>
             </tr>
           ))}

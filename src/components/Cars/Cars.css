@@ -19,13 +19,17 @@
     border: 1px solid #ddd;
     border-collapse: collapse;
     text-align: left;
-
+    animation: slideRigth 2s both;
   }
   
   .car-table th, .car-table td {
     padding: 8px 12px;
     border: 2px solid whitesmoke;
-    
+    animation: slideLeftTh 2s both;
+  }
+
+  .car-table thead tr {
+    animation: slideDown 2s both;
   }
   
   .car-table th {
@@ -38,6 +42,7 @@
   .car-table tr {
     background-color: #ddd;
     font-size: 18px;
+
   }
   
   .car-table tr:nth-child(even) {
@@ -48,19 +53,20 @@
     background-color: bisque;
   }
 
-  .car-table tr td:nth-child(4){
+  .car-table tr td:nth-child(3){
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
   }
 
-  .car-table i{
+  .car-table a{
      color: #ff3c20;
      font-size: 24px;
      transition: color 0.5;
+     text-decoration: none;
   }
 
-  .car-table i:hover {
+  .car-table a:hover {
     color: lawngreen;
   }
   
@@ -68,7 +74,8 @@
   /* Add Car Form */
 
   .addCar__form {
-    width: 60%;
+    max-width: 390px;
+    width: 90%;
     margin: 20px auto;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -76,6 +83,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     margin-bottom: 100px;
+    animation: slideUp 2s both;
   }
   
   .addCar__form form {
@@ -155,4 +163,55 @@
   
   .addCar__form button:hover {
     background-color: lawngreen;
+  }
+
+  /* Animatio */
+
+  @keyframes slideRigth {
+    0%{
+      opacity: 0;
+      transform: translateX(150%);
+    }
+
+    100%{
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes slideLeftTh {
+    0%{
+      opacity: 0;
+      transform: translateX(-400%);
+    }
+
+    100%{
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes slideUp {
+    0%{
+      opacity: 0;
+      transform: translateY(150%);
+    }
+
+    100%{
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  @keyframes slideDown {
+    0%{
+      opacity: 0;
+      transform: translateY(-150%);
+
+    }
+
+    100%{
+      opacity: 1;
+      transform: translateY(0%);
+    }
   }
