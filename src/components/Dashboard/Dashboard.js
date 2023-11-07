@@ -13,6 +13,9 @@ export const Dashboard = () => {
   const [updateUser, setUpdateUser] = useState({ name: "", email: "" });
   const [isEditFetch, setEditFetch] = useState(false);
 
+  // Edit validation
+  const [error, setError] = useState({ name: "", email: "" });
+
   // GET user info functionlity
   useEffect(() => {
     getUserInfo(user.token, user.id);
@@ -56,6 +59,23 @@ export const Dashboard = () => {
   const onSubmitEdit = async (event) => {
     event.preventDefault();
 
+    // Edit validation Functionality
+    let currentError = {};
+
+    if (updateUser.name.length < 3 || updateUser.name.length > 20) {
+      currentError.name = "Username should be between 3 and 20 characters long.";
+    }
+
+    if (!updateUser.email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+      currentError.email = "Email must be like example@abv.bg";
+    }
+ 
+    if(Object.keys(currentError).length > 0){
+      setError(currentError);
+      return;
+    }
+
+
     try {
       const response = await fetch(
         `http://127.0.0.1:8000/api/updateUserInfo/${user.id}`,
@@ -71,8 +91,9 @@ export const Dashboard = () => {
 
       if (response.ok) {
         // const result = await response.json();
-        
+
          isEditFetch ? setEditFetch(false) : setEditFetch(true);
+         setError({name: "", email: "" })
          setEdit(false);
       } else {
       }
@@ -99,6 +120,7 @@ export const Dashboard = () => {
                     setUpdateUser({ ...updateUser, name: event.target.value })
                   }
                 />
+                {error.name && <p className="editForm_p">{error.name}</p>}                   
               </div>
               <div>
                 <label className="edit__label">Email:</label>
@@ -110,6 +132,7 @@ export const Dashboard = () => {
                     setUpdateUser({ ...updateUser, email: event.target.value })
                   }
                 />
+                   {error.email && <p className="editForm_p">{error.email}</p>}
               </div>
               <button className="btn__handleEdit" >
                 Save

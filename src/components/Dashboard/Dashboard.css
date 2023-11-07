@@ -74,7 +74,12 @@
   outline: none;
 }
 
-
+.editForm_p {
+  color: red;
+  text-decoration: underline;
+  padding: 15px 5px;
+  letter-spacing: 1px;
+}
 
 @keyframes slideLeft {
   0%{
