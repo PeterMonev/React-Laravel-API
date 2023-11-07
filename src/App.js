@@ -8,6 +8,7 @@ import { Header } from './components/Header/Header';
 import { Dashboard } from './components/Dashboard/Dashboard';
 import { Footer } from './components/Footer/Footer';
 import { PrivateGuard } from './guards/PrivateGuard';
+import { Cars } from './components/Cars/Cars';
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
 
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
- 
+        <Route path='/cars' element={<Cars/>}/>
 
     </Routes>  
 

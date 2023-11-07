@@ -1,0 +1,158 @@
+
+.carsPage__h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #ff3c20;
+    margin: 20px auto;
+    font-style: italic;
+    text-decoration: underline;
+    background-color: #f2f2f2;
+    min-width: 25%;
+    width: 25%;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.car-table {
+    margin: auto;
+    width: 60%;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    text-align: left;
+
+  }
+  
+  .car-table th, .car-table td {
+    padding: 8px 12px;
+    border: 2px solid whitesmoke;
+    
+  }
+  
+  .car-table th {
+    background-color: #333;
+    color: #ff3c20;
+    font-size: 26px;
+    text-align: center;
+  }
+  
+  .car-table tr {
+    background-color: #ddd;
+    font-size: 18px;
+  }
+  
+  .car-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .car-table tr:hover {
+    background-color: bisque;
+  }
+
+  .car-table tr td:nth-child(4){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .car-table i{
+     color: #ff3c20;
+     font-size: 24px;
+     transition: color 0.5;
+  }
+
+  .car-table i:hover {
+    color: lawngreen;
+  }
+  
+
+  /* Add Car Form */
+
+  .addCar__form {
+    width: 60%;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    margin-bottom: 100px;
+  }
+  
+  .addCar__form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    gap: 20px;
+    color: gray;
+    width: 80%;
+    margin: auto;
+  }
+  
+  .addCar__form h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #ff3c20;
+    font-style: italic;
+    text-decoration: underline;
+    margin-bottom: 30px;
+  }
+  
+  .addCar__form input {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    border: 3px solid bisque;
+    border-radius: 20px;
+    outline: none;
+    
+  }
+  
+  .div__create__car {
+    position: relative;
+    width: 80%;
+  }
+
+  .addCar__form label {
+    position: absolute;
+    left: 0;
+    padding: 18px 0 0 15px;
+    transition: 0.5s;
+    font-weight: bold;
+  }
+
+  .addCar__form label i {
+    margin-right: 5px;
+  }
+
+  .addCar__form input:focus + label,
+  .addCar__form input:not(:placeholder-shown) + label {
+    font-size: 16px;
+    color: #ff3c20;
+    transform: translateX(10px) translateY(-110%);
+  }
+
+  
+  .addCar__form input:focus {
+    border: 3px solid lawngreen;
+  }
+  
+ 
+  .addCar__form button {
+    background-color: #ff3c20;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 40%;
+    border-radius: 20px;
+    transition: 0.3s;
+    border: 3px solid bisque;
+    font-size: 18px;
+  }
+  
+  .addCar__form button:hover {
+    background-color: lawngreen;
+  }
