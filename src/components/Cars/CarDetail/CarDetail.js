@@ -20,11 +20,15 @@ export const CarDetail = () => {
                }
             });
 
-            const result = await response.json();
-            setCarDetail(result.data);
-            
+            if(response.ok){
+                const result = await response.json();
+                setCarDetail(result.data);
+            } else {
+                console.error("Can't get car details")
+            }
+       
         } catch (error) {
-            
+            console.error(`Error: ${error}`)
         }
     }
 

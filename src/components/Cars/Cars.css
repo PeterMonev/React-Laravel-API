@@ -165,7 +165,15 @@
     background-color: lawngreen;
   }
 
-  /* Animatio */
+  .createForm_p {
+    color: red;
+    text-decoration: underline;
+    font-style: italic;
+    margin: 7px 0;
+    letter-spacing: 1px;
+    animation: shake 1s both;
+  }
+  /* Animation */
 
   @keyframes slideRigth {
     0%{

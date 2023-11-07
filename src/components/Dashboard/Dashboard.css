@@ -80,6 +80,7 @@
   text-decoration: underline;
   padding: 15px 5px;
   letter-spacing: 1px;
+  animation: shake 1s both;
 }
 
 @keyframes slideLeft {
