@@ -11,7 +11,6 @@ export const Dashboard = () => {
   // Edit user info
   const [isEdit, setEdit] = useState(false);
   const [updateUser, setUpdateUser] = useState({ name: "", email: "" });
-  const [isEditFetch, setEditFetch] = useState(false);
 
   // Edit validation
   const [error, setError] = useState({ name: "", email: "" });
@@ -19,8 +18,8 @@ export const Dashboard = () => {
   // GET user info functionlity
   useEffect(() => {
     getUserInfo(user.token, user.id);
-    console.log('yes');
-  }, [user, isEditFetch]);
+
+  }, [user]);
 
   const getUserInfo = async (token, userId) => {
     try {
@@ -92,7 +91,7 @@ export const Dashboard = () => {
       if (response.ok) {
         // const result = await response.json();
 
-         isEditFetch ? setEditFetch(false) : setEditFetch(true);
+         getUserInfo(user.token, user.id);
          setError({name: "", email: "" })
          setEdit(false);
       } else {
