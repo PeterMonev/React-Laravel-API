@@ -1,24 +1,39 @@
-import '../Cars/Cars.css';
-import { useAuth } from '../../hooks/authContext';
+import "../Cars/Cars.css";
+import { useAuth } from "../../hooks/authContext";
+import { useEffect, useState } from "react";
 
 export const Cars = () => {
-    const { user } = useAuth();
+  const { user } = useAuth();
+  const [cars, setCars] = useState([]);
 
-    const cars = [
-        { brand: 'Toyota', model: 'Camry', year: 2022 },
-        { brand: 'Honda', model: 'Accord', year: 2021 },
-        { brand: 'Ford', model: 'F-150', year: 2020 },
-        { brand: 'Toyota', model: 'Camry', year: 2022 },
-   
-     
-        
-        
-      ];
-      
-    return (
-        <>
-        <h1 className="carsPage__h1">Cars Page</h1>
-        <table className="car-table">
+  useEffect(() => {
+    getAllCars();
+  }, []);
+
+  const getAllCars = async () => {
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/getAllCars", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setCars(data.data);
+      } else {
+        console.error("Failed to fetch cars.");
+      }
+    } catch (error) {
+      console.error("An error occurred while fetching cars:", error);
+    }
+  };
+  console.log(cars);
+  return (
+    <>
+      <h1 className="carsPage__h1">Cars Page</h1>
+      <table className="car-table">
         <thead>
           <tr>
             <th>Brand</th>
@@ -28,16 +43,14 @@ export const Cars = () => {
           </tr>
         </thead>
         <tbody>
-          {cars.map((car, index) => (
-            <tr key={index}>
+          {cars.map((car, id) => (
+            <tr key={id}>
               <td>{car.brand}</td>
               <td>{car.model}</td>
               <td>{car.year}</td>
               <td>
-
                 <i className="fa-solid fa-circle-info"></i>
                 {user && <i className="fa-solid fa-pen-to-square"></i>}
-            
               </td>
             </tr>
           ))}
@@ -46,40 +59,29 @@ export const Cars = () => {
       {user && (
         <section className="addCar__form">
           <h2>Add a New Car</h2>
-          <form >
-        <div className='div__create__car'>
-          <input
-            type="text"
-            name="brand"
-            placeholder=""
-       
-          />
-          <label htmlFor="brand"><i className="fa-solid fa-car"></i>Brand:</label>
-          </div> 
-          <div className='div__create__car'>
-          <input
-            type="text"
-            name="model"
-            placeholder=""
-       
-          />
-          <label htmlFor="model"><i className="fa-solid fa-car-side"></i>Model:</label>
-          </div> 
-          <div className='div__create__car'>
-          <input
-            type="text"
-            name="year"
-            placeholder=""
-          
-          />
-          <label htmlFor="year"><i className="fa-solid fa-calendar-days"></i>Year:</label>
-          </div> 
-          <button>
-            Add Car
-          </button>
+          <form>
+            <div className="div__create__car">
+              <input type="text" name="brand" placeholder="" />
+              <label htmlFor="brand">
+                <i className="fa-solid fa-car"></i>Brand:
+              </label>
+            </div>
+            <div className="div__create__car">
+              <input type="text" name="model" placeholder="" />
+              <label htmlFor="model">
+                <i className="fa-solid fa-car-side"></i>Model:
+              </label>
+            </div>
+            <div className="div__create__car">
+              <input type="text" name="year" placeholder="" />
+              <label htmlFor="year">
+                <i className="fa-solid fa-calendar-days"></i>Year:
+              </label>
+            </div>
+            <button>Add Car</button>
           </form>
         </section>
       )}
-      </>
-    );
-}
+    </>
+  );
+};
