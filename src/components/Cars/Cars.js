@@ -12,7 +12,7 @@ export const Cars = () => {
    
      
         
-        // Add more car data as needed
+        
       ];
       
     return (
