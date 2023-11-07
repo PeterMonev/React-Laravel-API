@@ -1,0 +1,50 @@
+
+.dashboard__container {
+    width: 390px;
+    margin: 10% auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-style: italic;
+    animation: slideLeft 1s both;
+  }
+  
+ .dashboard__title {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #ff3c20;
+    text-decoration: underline;
+  }
+  
+  .dashboard-info {
+    font-size: 18px;
+    text-align: left;
+    color: #666;
+  }
+  
+  .dasboard__item {
+    margin: 20px 10px;
+    font-size: 18px;
+  }
+
+  .dasboard__item span {
+    font-style: normal;
+    color: #ff3c20;
+    font-size: 20px;
+  }
+
+@keyframes slideLeft {
+  0%{
+    transform: translateX(-150%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+} 
+  

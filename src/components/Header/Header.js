@@ -4,8 +4,8 @@ import { useAuth } from '../../hooks/authContext';
 import { Link } from 'react-router-dom';
 
 export const Header = () => {
-  const { token , logout} = useAuth();
-
+  const { user , logout} = useAuth();
+ 
   const handleLogout = () => {
     logout();
   }
@@ -14,11 +14,11 @@ export const Header = () => {
     <header className="header">
       <nav className="nav">
         <ul className="nav__ul">
-          <Link to='/login'>Login</Link>
-          <Link to='/register'>Register</Link>
-          {token && <Link to='/logout' onClick={handleLogout}>Logout</Link>}
-          <Link to='/dashboard'>Dashboard</Link>
+          {!user && <Link to='/login'>Login</Link>}
+          {!user && <Link to='/register'>Register</Link>}
+          {user && <Link to='/dashboard'>Dashboard</Link>}
           <Link to='/cars'>Cars</Link>
+          {user && <Link to='/login' onClick={handleLogout}>Logout</Link>}
         </ul>
       </nav>
     </header>

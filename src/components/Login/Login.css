@@ -6,6 +6,7 @@
     border-radius: 5px;
     box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.3);
     border-radius: 30px;
+    animation: scaleUp 1s both;
   }
   
   .container__login h2 {
@@ -106,7 +107,7 @@
   
     100% {
       opacity: 1;
-      transform: scale(2);
+      transform: scale(1);
     }
   }
   

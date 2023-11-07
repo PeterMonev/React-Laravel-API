@@ -78,10 +78,11 @@ export const Register = () => {
        })   
    
        if(response.ok){
-        const result = await response.json();
-        login(result.data.token);
-        
-        navigate('/dashboard');
+        // const result = await response.json();
+        // console.log(result.data);
+        // login(result.data);
+
+        navigate("/login");
        } else {
         currentError.email = 'This Email already exist.'
         setError(currentError)

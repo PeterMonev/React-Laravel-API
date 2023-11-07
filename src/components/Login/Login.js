@@ -60,7 +60,8 @@ export const Login = () => {
 
       if (response.ok) {
         const result = await response.json();
-        login(result.data.token);
+       
+        login(result.data);
 
         navigate("/dashboard");
       } else {

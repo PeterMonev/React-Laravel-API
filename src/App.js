@@ -7,6 +7,8 @@ import { AuthProvider } from './hooks/authContext';
 import { Header } from './components/Header/Header';
 import { Dashboard } from './components/Dashboard/Dashboard';
 import { Footer } from './components/Footer/Footer';
+import { PrivateGuard } from './guards/PrivateGuard';
+
 
 function App() {
   return (
@@ -17,11 +19,16 @@ function App() {
     <Header/>
 
     <Routes>
-      
-      <Route path='/' element={<Dashboard/>}/>
-      <Route path='/register' element={<Register/>}/>
-      <Route path='/login' element={<Login/>}/>
 
+      <Route element={<PrivateGuard/>}>
+        <Route path='/' element={<Dashboard/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
+      </Route>
+      
+
+        <Route path='/register' element={<Register/>}/>
+        <Route path='/login' element={<Login/>}/>
+ 
 
     </Routes>  
 

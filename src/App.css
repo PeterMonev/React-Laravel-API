@@ -33,6 +33,7 @@ body {
 	background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+	height: 100vh;
 }
 ol, ul {
 	list-style: none;
