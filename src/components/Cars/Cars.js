@@ -13,7 +13,7 @@ export const Cars = () => {
     user_id: user ? user.id : null,
     brand: "",
     model: "",
-    year: 0,
+    year: "",
   });
 
   // Create car validaton
@@ -70,6 +70,14 @@ export const Cars = () => {
       return;
     }
 
+    // Prepare data
+    const data = {
+      user_id: createCar.user_id,
+      brand: createCar.brand,
+      model: createCar.model,
+      year: createCar.year,
+    }
+
 
     try {
       const response = await fetch("http://127.0.0.1:8000/api/addCar", {
@@ -78,12 +86,18 @@ export const Cars = () => {
           "Content-Type": "applcation/json",
           Authorization: `Bearer ${user.token}`,
         },
-        body: JSON.stringify(createCar),
+        body: JSON.stringify(data),
       });
 
       if (response.ok) {
         setError({ brand: "", model: "", year: "" })
         getAllCars();
+        setCreateCar({
+          user_id: user ? user.id : null,
+          brand: "",
+          model: "",
+          year: "",
+        })
       } else {
         console.error("Error can't create new car.");
       }
@@ -95,31 +109,30 @@ export const Cars = () => {
   return (
     <>
       <h1 className="carsPage__h1">Cars Page</h1>
-      <table className="car-table">
-        <thead>
-          <tr>
-            <th>Brand</th>
-            <th>Model</th>
-
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cars.map((car, id) => (
-            <tr key={id}>
-              <td>{car.brand}</td>
-              <td>{car.model}</td>
-
-              <td>
-                <Link
-                  to={`/cars/${car.id}`}
-                  className="fa-solid fa-circle-info"
-                ></Link>
-              </td>
+      {cars.length === 0 ? (
+        <p className="notFound">Not cars found.</p>
+      ) : (
+        <table className="car-table">
+          <thead>
+            <tr>
+              <th>Brand</th>
+              <th>Model</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {cars.map((car, id) => (
+              <tr key={id}>
+                <td>{car.brand}</td>
+                <td>{car.model}</td>
+                <td>
+                  <Link to={`/cars/${car.id}`} className="fa-solid fa-circle-info"></Link>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
       {user && (
         <section className="addCar__form">
           <h2>Add a New Car</h2>
@@ -175,4 +188,5 @@ export const Cars = () => {
       )}
     </>
   );
+  
 };

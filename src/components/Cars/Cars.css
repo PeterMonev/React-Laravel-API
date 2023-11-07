@@ -20,6 +20,7 @@
     border-collapse: collapse;
     text-align: left;
     animation: slideRigth 2s both;
+    margin-bottom: 70px;
   }
   
   .car-table th, .car-table td {
@@ -173,12 +174,22 @@
     letter-spacing: 1px;
     animation: shake 1s both;
   }
+
+  .notFound {
+    text-align: center;
+    font-size: 30px;
+    color: #ff3c20;
+  }
   /* Animation */
 
   @keyframes slideRigth {
     0%{
       opacity: 0;
-      transform: translateX(150%);
+      transform: translateX(250%);
+    }
+
+    30% {
+      opacity: 0;
     }
 
     100%{
@@ -190,7 +201,7 @@
   @keyframes slideLeftTh {
     0%{
       opacity: 0;
-      transform: translateX(-400%);
+      transform: translateX(-800%);
     }
 
     100%{
@@ -202,12 +213,14 @@
   @keyframes slideUp {
     0%{
       opacity: 0;
-      transform: translateY(150%);
+      transform: translateY(500%);
+  
     }
 
     100%{
       opacity: 1;
       transform: translateY(0%);
+ 
     }
   }
 
