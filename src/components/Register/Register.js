@@ -2,13 +2,9 @@ import {  useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import "../Register/Register.css";
-import { useAuth } from "../../hooks/authContext";
-
 
 export const Register = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
-
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -78,11 +74,8 @@ export const Register = () => {
        })   
    
        if(response.ok){
-        // const result = await response.json();
-        // console.log(result.data);
-        // login(result.data);
-
         navigate("/login");
+
        } else {
         currentError.email = 'This Email already exist.'
         setError(currentError)
